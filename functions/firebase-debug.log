@@ -1,0 +1,48 @@
+[debug] [2019-07-19T01:03:33.491Z] ----------------------------------------------------------------------
+[debug] [2019-07-19T01:03:33.497Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\nisiyuu\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve --only functions
+[debug] [2019-07-19T01:03:33.498Z] CLI Version:   7.1.1
+[debug] [2019-07-19T01:03:33.498Z] Platform:      win32
+[debug] [2019-07-19T01:03:33.498Z] Node Version:  v10.16.0
+[debug] [2019-07-19T01:03:33.501Z] Time:          Fri Jul 19 2019 10:03:33 GMT+0900 (GMT+09:00)
+[debug] [2019-07-19T01:03:33.501Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-07-19T01:03:33.520Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-07-19T01:03:33.522Z] > authorizing via signed-in user
+[debug] [2019-07-19T01:03:33.522Z] [iam] checking project ikuyoproject-9e009 for permissions ["firebase.projects.get"]
+[debug] [2019-07-19T01:03:33.526Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-07-19T01:03:33.527Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2019-07-19T01:03:33.759Z] <<< HTTP RESPONSE 200
+[debug] [2019-07-19T01:03:33.814Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/ikuyoproject-9e009:testIamPermissions  
+
+[debug] [2019-07-19T01:03:34.698Z] <<< HTTP RESPONSE 200
+[debug] [2019-07-19T01:03:34.699Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/ikuyoproject-9e009  
+ 
+[debug] [2019-07-19T01:03:35.518Z] <<< HTTP RESPONSE 200
+[warn] !  Your requested "node" version "8" doesn't match your global version "10"
+[debug] [2019-07-19T01:03:35.558Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/ikuyoproject-9e009/adminSdkConfig  
+ 
+[debug] [2019-07-19T01:03:35.978Z] <<< HTTP RESPONSE 200
+[info] +  functions: Emulator started at http://localhost:5000
+[info] i  functions: Watching "C:\Users\nisiyuu\desktop\ikuyowebpage\functions" for Cloud Functions...
+[debug] [2019-07-19T01:03:37.202Z] [runtime-status] Functions runtime initialized. {"cwd":"C:\\Users\\nisiyuu\\desktop\\ikuyowebpage\\functions","node_version":"10.16.0"}
+[debug] [2019-07-19T01:03:37.203Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"protect_env":true,"admin_stubs":true} {}
+[debug] [2019-07-19T01:03:37.212Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.2.0","resolution":"C:\\Users\\nisiyuu\\desktop\\ikuyowebpage\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-07-19T01:03:37.215Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.1.0","resolution":"C:\\Users\\nisiyuu\\desktop\\ikuyowebpage\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-07-19T01:03:37.217Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.1.0","resolution":"C:\\Users\\nisiyuu\\desktop\\ikuyowebpage\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2019-07-19T01:03:37.291Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.2.0","resolution":"C:\\Users\\nisiyuu\\desktop\\ikuyowebpage\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2019-07-19T01:03:37.733Z] [runtime-status] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.2.0","resolution":"C:\\Users\\nisiyuu\\desktop\\ikuyowebpage\\functions\\node_modules\\firebase-admin\\lib\\index.js"}}
+[debug] [2019-07-19T01:03:37.761Z] [default-admin-app-used]  {"databaseURL":"https://ikuyoproject-9e009.firebaseio.com","storageBucket":"ikuyoproject-9e009.appspot.com","projectId":"ikuyoproject-9e009","credential":{}}
+[debug] [2019-07-19T01:03:37.761Z] [runtime-status] Intializing default app. {"databaseURL":"https://ikuyoproject-9e009.firebaseio.com","storageBucket":"ikuyoproject-9e009.appspot.com","projectId":"ikuyoproject-9e009","credential":{}}
+[warn] !  TypeError: Cannot read property 'token' of undefined
+    at Object.<anonymous> (C:\Users\nisiyuu\desktop\ikuyowebpage\functions\index.js:7:59)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:690:17)
+    at require (internal/modules/cjs/helpers.js:25:18)
+    at C:\Users\nisiyuu\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\functionsEmulatorRuntime.js:615:33
+    at Generator.next (<anonymous>)
+[warn] !  We were unable to load your functions code. (see above)

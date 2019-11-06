@@ -1,0 +1,32 @@
+[
+    {
+        "groupID" : "01",
+        "name": "TEE",
+        "price":"3000",
+        "image":"img/ikuyoT/main.jpg",
+        "description":"長袖.厚めの生地.リブが心地よい.",
+        "items": [
+            {"id": "01", "size" : "S" ,"color" : "white","listItem" : "white:S","stock" : true, "image": "img/ikuyoT/1.jpg"},
+            {"id": "02", "size" : "M" ,"color" : "white","listItem" : "white:M","stock" : true, "image": "img/ikuyoT/2.jpg"},
+            {"id": "03", "size" : "L" ,"color" : "white","listItem" : "white:L","stock" : true, "image": "img/ikuyoT/3.jpg"},
+            {"id": "04", "size" : "S" ,"color" : "black","listItem" : "black:S","stock" : true, "image": "img/ikuyoT/1.jpg"},
+            {"id": "05", "size" : "M" ,"color" : "black","listItem" : "black:M","stock" : true, "image": "img/ikuyoT/2.jpg"},
+            {"id": "06", "size" : "L" ,"color" : "black","listItem" : "black:L","stock" : true, "image": "img/ikuyoT/3.jpg"}
+        ]
+    },
+    {
+        "groupID" : "02",
+        "name": "HOODIE",
+        "price":"7000",
+        "image":"img/hoodie/main.jpg",
+        "description":"HOODIE.平成から令和へ.",
+        "items": [
+            {"id": "07", "size" : "S" ,"color" : "naivy","listItem" : "naivy:S","stock" : true, "image": "img/hoodie/1.jpg" },
+            {"id": "08", "size" : "M" ,"color" : "naivy","listItem" : "naivy:M","stock" : true, "image": "img/hoodie/2.jpg" },
+            {"id": "09", "size" : "L" ,"color" : "naivy","listItem" : "naivy:L","stock" : true, "image": "img/hoodie/3.jpg" },
+            {"id": "10", "size" : "S" ,"color" : "black","listItem" : "black:S","stock" : true, "image": "img/hoodie/1.jpg" },
+            {"id": "11", "size" : "M" ,"color" : "black","listItem" : "black:M","stock" : true, "image": "img/hoodie/2.jpg" },
+            {"id": "12", "size" : "L" ,"color" : "black","listItem" : "black:L","stock" : true, "image": "img/hoodie/3.jpg" }
+        ]
+    }
+]

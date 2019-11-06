@@ -1,0 +1,7 @@
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users/{userId}/products/{productId} {
+      allow create, read, update, delete:if true;
+    }
+  }
+}
