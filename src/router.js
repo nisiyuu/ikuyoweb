@@ -9,21 +9,28 @@ import Cart from './views/Cart.vue'
 import Error from './views/Error.vue'
 import Test from './views/Test.vue'
 import loading from './views/loading.vue'
+import Success from './views/Success.vue'
+import Failure from './views/Failure.vue'
 import store from './store.js'
+import Db from './components/db.vue'
 
 Vue.use(Router)
 
 const router = new Router({
   base: process.env.BASE_URL,
-  scrollBehavior (to, from, savedPosition) {//常に一番上から表示
+  scrollBehavior () {//常に一番上から表示
     return { x: 0, y: 0 }
   },
   routes: [
     {
+      path: '/db',
+      name: 'db',
+      component: Db
+    },
+    {
       path: '/',
       name: 'home',
       component: Home
-      // component: Test
     },
     {
       path: '/shop',
@@ -66,6 +73,35 @@ const router = new Router({
       component: loading
     },
     {
+      path: '/instagram',
+      name: 'instagram',
+      beforeEnter() {
+        // Put the full page url including the protocol http(s) below
+        window.location = "https://www.instagram.com/ikuyo_club/?hl=ja"
+      }
+    },
+    {
+      path: '/mail',
+      name: 'mail',
+      beforeEnter() {
+        // Put the full page url including the protocol http(s) below
+        window.location = "mailto:ikuyoclub@gmail.com?subject=問い合わせ&amp;"
+      }
+    },
+
+    {
+      path: '/success',
+      name: 'success',
+      component: Success
+    },
+
+    {
+      path: '/failure',
+      name: 'failure',
+      component: Failure
+    },
+
+    {
       path: '*',//全てのルート
       name: 'error',
       component: Error//上から順にマッチングされる
@@ -83,13 +119,13 @@ const router = new Router({
 //   store.commit('setLoading', false)
 // })
 
-// router.beforeEach((to, from, next) => {
-//   store.commit('start')
-//   next()
-// })
-// // ルーターナビゲーションの後にフック
-// router.afterEach(() => {
-//   store.commit('end')
-// })
+router.beforeEach((to, from, next) => {
+  store.commit('start')
+  next()
+})
+// ルーターナビゲーションの後にフック
+router.afterEach(() => {
+  store.commit('end')
+})
 
 export default router

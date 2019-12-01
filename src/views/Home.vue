@@ -4,7 +4,10 @@
   <video playsinline muted autoplay loop class="video" @canplaythrough="loading">
     <source src="../assets/home1028outputnew.mp4" type="video/mp4">
   </video>
-  <img src="../assets/logo2.png" class="logo">
+  <!-- <img src="../assets/logo2.png" class="logo"> -->
+  
+  <vue-typer class="a" :text=a :type-delay='2' :repeat='0'></vue-typer>
+
   </div>
   </div>
  
@@ -12,6 +15,7 @@
 </template>
 
 <style scoped>
+
 .homewrap video{
   width:100%;
   height:100%;
@@ -30,7 +34,20 @@
   z-index: 3;
 }
 
+.a{
+  width: 105%;
+  height:105%;
+  position: fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index: 3;
+}
+
+
 .homewrap{
+  width:100%;
+  height:100%;
   margin: 0;
   padding: 0;
   background-color:white;
@@ -133,8 +150,8 @@
   height: auto;
 }
 
-/* ネオン *//* https://webdesignfacts.net/entry/guritti-css/ */
-html,
+/* ネオンhttps://webdesignfacts.net/entry/guritti-css/ */
+/* html,
 body {
   margin: 0;
   padding: 0;
@@ -153,68 +170,24 @@ body {
   display: table-cell;
   text-align: center;
   vertical-align: middle;
-}
-
-.neon {
-  font-family: neon;
-  color: #FB4264;
-  font-size: 9vw;
-  line-height: 9vw;
-  text-shadow: 0 0 3vw #F40A35;
-}
-
-.flux {
-  font-family: neon;
-  color: #426DFB;
-  font-size: 9vw;
-  line-height: 9vw;
-  text-shadow: 0 0 3vw #2356FF;
-}
-
-.neon {
-  animation: neon 1s ease infinite;
-  -moz-animation: neon 1s ease infinite;
-  -webkit-animation: neon 1s ease infinite;
-}
-
-@keyframes neon {
-  0%,
-  100% {
-    text-shadow: 0 0 1vw #ff00ff, 0 0 3vw #ff00ff, 0 0 10vw #ff00ff, 0 0 10vw #FA1C16, 0 0 .4vw #FED128, .5vw .5vw .1vw #806914;
-    color: #ee82ee;
-  }
-  50% {
-    text-shadow: 0 0 .5vw #800E0B, 0 0 1.5vw #800E0B, 0 0 5vw #800E0B, 0 0 5vw #800E0B, 0 0 .2vw #800E0B, .5vw .5vw .1vw #40340A;
-    color: #806914;
-  }
-}
-
-.flux {
-  animation: flux 2s linear infinite;
-  -moz-animation: flux 2s linear infinite;
-  -webkit-animation: flux 2s linear infinite;
-  -o-animation: flux 2s linear infinite;
-}
-
-@keyframes flux {
-  0%,
-  100% {
-    text-shadow: 0 0 1vw #1041FF, 0 0 3vw #1041FF, 0 0 10vw #1041FF, 0 0 10vw #1041FF, 0 0 .4vw #8BFDFE, .5vw .5vw .1vw #147280;
-    color: #28D7FE;
-  }
-  50% {
-    text-shadow: 0 0 .5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180, 0 0 5vw #082180, 0 0 .2vw #082180, .5vw .5vw .1vw #0A3940;
-    color: #146C80;
-  }
-}
+} */
 
 </style>
 
 
 <script>
 import store from '../store.js'//https://tackeyy.com/blog/posts/how-to-access-store-in-vue-router-at-before-enter
+import { VueTyper } from 'vue-typer'
 
   export default {
+    components:{
+      VueTyper,
+  },
+  data(){
+    return{
+      a:"酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔酔服服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔酔服服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔酔服服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔酔服服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔酔服服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔酔服服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔酔服服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔酔服服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔酔服服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔酔服服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔酔服服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔酔服服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔酔服服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔酔服服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔酔服服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔酔服服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔酔服服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔酔服服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服服酔服酔服酔服酔服酔服酔服服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服服酔服酔服酔服酔服酔服酔服服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服服酔服酔服酔服酔服酔服酔服服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服服酔服酔服酔服酔服酔服酔服服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服服酔服酔服酔服酔服酔服酔服服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服服酔服酔服酔服酔服酔服酔服服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服服酔服酔服酔服酔服酔服酔服服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔服酔酔服酔服酔"
+    }
+  }
     // async beforeRouteEnter(to, from, next) {
     // await store.dispatch('setLoading')
     // next()

@@ -1,20 +1,15 @@
 <template>
 <div> 
   <div class="image">
-    <v-card elevation="24">
-    <!-- <img :src=itemData.image class="imagesource" @click="select"> -->
-  <!-- <div>{{itemData.name}}</div> -->
-  <!-- <div>{{itemData.description}}</div> -->
-  <v-img
+    <v-card elevation="0">
+      <v-img
       :src=itemData.image
-      class="white--text align-end headline"
+      class="align-end headline"
       height="100%"
       width="100%"
       @click="select"
-    >
-  <v-card-title>{{itemData.name}}</v-card-title>
-
-  </v-img>
+      >
+      </v-img>
     </v-card>
   </div>
 
@@ -28,12 +23,6 @@
   margin-bottom: 20%;
 }
 
-/* 画像のレスポンシブ */
-.imagesource{
-  width:100%;
-  height:100%; 
-}
-
 </style>
 
 <script>
@@ -42,9 +31,6 @@
 export default {
   props:{//Itemlist.vueから受け取るpropsを定義
     itemData:{type: Object, required:true},
-  },
-  mounted() {
-    window.addEventListener('scroll', this.handleScroll);
   },
   methods: {
     select() {

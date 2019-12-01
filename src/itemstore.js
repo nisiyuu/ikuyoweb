@@ -1,11 +1,13 @@
 import allItems from './assets/data.json'
+import firebase from 'firebase'
 
 export default {
   namespaced: true,//module扱い
   state: {
+    dbconnection:null,
     allItems: allItems,//jsonからデータを読み込み
   },
-  getters: {//中身勉強要 
+  getters: {//queryって仮引数だよね？
     allItems(state) {
       return (query) => {
           if (query === undefined) {
@@ -34,4 +36,4 @@ export default {
   //     );
   // },
   },
-};
+}

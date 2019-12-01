@@ -1,7 +1,10 @@
 <template>
-    <div class="img">
-        <img src="../../public/img/varcord.jpg" class="varcord">
-    </div>
+    <!-- <div class="img">
+        <img src="../../public/img/shopvue.png" class="turkey">
+    </div> -->
+  <video playsinline muted autoplay loop class="loading">
+    <source src="./tv.mp4" type="video/mp4">
+  </video>
 </template>
 
 
@@ -13,15 +16,21 @@ export default {
 </script>
 
 <style scoped>
-.varcord{
-    animation:buruburu 0.1s infinite linear alternate;
-    width: 10%;
-    height: 20%;
-    margin-top: 100px;
-    opacity: 1.0;
+.loading{
+    width:400%;
+    height:400%;
 }
+
+
 .img{
-    margin-top: 100px;
+    widows:2000px;
+    height: 2000px;
     text-align: center;
+    background-color: black;
+}
+
+.turkey{
+    width: 50%;
+    height:50%;
 }
 </style>

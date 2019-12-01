@@ -1,37 +1,48 @@
 <template>
-  <v-app>
-    <v-toolbar app flat color=transparent>
-      <v-toolbar-side-icon @click.stop="toggleSideMenu" v-show="!this.$store.state.loading">
+<v-app id="background" style="position: relative;">
+    <v-app-bar app flat color="transparent" 
+    v-if="this.$vuetify.breakpoint.xs || this.$vuetify.breakpoint.sm || this.$vuetify.breakpoint.md"
+    style="position:fixed;top:93%;left:45%;width:100%;height:100%;margin:0 auto;">
+      <div @click.stop="toggleSideMenu" v-show="!this.$store.state.loading" style="margin:0 auto;">
         <img src="img/varcord.jpg" class="varcord">
-      </v-toolbar-side-icon>
-      <v-spacer></v-spacer>
-      <v-toolbar-title style="opacity:0.5" v-show="!this.$store.state.loading">ikuyo</v-toolbar-title>
-    </v-toolbar>
-    <SideNav/>
+      </div>
+      <!-- <v-spacer></v-spacer> -->
+    </v-app-bar>
+
+    <v-app-bar app flat color="transparent" 
+    v-if="this.$vuetify.breakpoint.lg || this.$vuetify.breakpoint.xl"
+    right
+    style="position:fixed;top:93%;left:45%;width:100%;height:100%;margin:0 auto;">
+    <div @click.stop="toggleSideMenu" v-show="!this.$store.state.loading" style="margin:0 auto;">
+        <img src="img/varcord.jpg" class="varcord">
+      </div>
+    </v-app-bar>
+    <SideNav></SideNav>
+    
   
     <Loading v-show="this.$store.state.loading"/>
       <router-view v-show="!this.$store.state.loading"/> 
-      <!-- <Footer></Footer> -->
-  </v-app>
+      <!-- <Footer v-show="this.$route.path !=='/'"> -->
+      <!-- </Footer> -->
+      </v-app>
 </template>
 
 <style>
-.application--wrap{
-  background-color:white;
-  font-family: 'YuGothic';
+#background{
+  width:100%;
+  height:100%;
+  /* background-image: linear-gradient(#954399 1px, transparent 0), */
+                    /* linear-gradient(90deg, #954399 1px, transparent 0); */
+  background-size: 40px 40px;
+  /* background-color:#037A90; */
+  font-family: 'Monoton', cursive;
 }
+@import url('https://fonts.googleapis.com/css?family=Monoton&display=swap');
 
 /* 共通のglichエフェクト */
 .glichwrap{
   background-color:white;
   animation: flash .1s infinite;
-  /* background-image: url("./assets/sweat.png");
-  background-size: 100%;
-  background-position-y: 100px; */
-
-  /* ,skew 3s infinite,glitch 1.5s both infinite; */
-  /* background-image: url("../public/img/ikuyo_back.jpg");
-  background-size: 400%;
 
 /* グリッチhttps://hirashimatakumi.com/blog/6303.html */
 }
@@ -109,11 +120,23 @@
   }
 }
 
+/* ロゴ */
+.logo{
+  opacity: 0.7;
+  width:25%;
+  height: 25%;
+  text-align: center;
+  /* animation:buruburu 0.1s infinite linear alternate; */
+}
+
 /* バーコード */
 .varcord{
-  width:150%;
-  height: 150%;
-  opacity: 0.5;
+  /* width:50%;
+  height: 50%; */
+  opacity: 0.6;
+  width:20vw;
+  height:auto;
+  transform:rotateZ(90deg)
   /* animation:buruburu 0.1s infinite linear alternate; */
 }
 
@@ -141,7 +164,6 @@ import SideNav from './components/SideNav'
 import Footer from './components/Footer'
 import Loading from './views/loading.vue'
 import { mapActions } from 'vuex'
-import firebase from 'firebase'
 
 export default {
   name: 'App',
@@ -150,49 +172,8 @@ export default {
     Footer,
     Loading,
   },
-  data () {
-    return {
-      //
-    }
-  },
-  // watch: {
-  //   $route() {
-  //     // アニメーションの切り替え
-  //     // if (to.meta.index > from.meta.index) {
-  //     //   this.transition.enter = '進むときのenterアニメーション';
-  //     //   this.transition.leave = '進むときのleaveアニメーション';
-  //     // } else {
-  //     //   this.transition.enter = '戻るときのenterアニメーション';
-  //     //   this.transition.leave = '戻るときのleaveアニメーション';
-  //     // }
-  //     if(this.$store.state.is_loading)
-  //     this.$store.dispatch('setLoading', false);
-      
-  //   },
-  // },
   methods: {
     ...mapActions(['toggleSideMenu', 'setLoginUser','logout','deleteLoginUser','fetchProducts'])
   },
-  
-  // created(){
-  //     this.$store.dispatch('setLoading', false)
-  // },
-
-//   mounted() {
-//   this.$nextTick(function () {
-//     // ビュー全体がレンダリングされた後にのみ実行されるコード
-//     this.$store.dispatch('setLoading', false)
-//   })
-// }
-   
-    // firebase.auth().onAuthStateChanged(user => {
-    // if(user){
-    //   this.setLoginUser(user)
-    //   this.fetchProducts()
-    //   if(this.$router.currentRoute.name === 'cart') this.$router.push({name:'cart' })
-    // }else{
-    //   this.deleteLoginUser()
-    //   this.$router.push({name:'home'})
-
 }
 </script>
