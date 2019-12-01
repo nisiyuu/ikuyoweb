@@ -1,14 +1,8 @@
 <template>
-  <footer>
+  <footer color=#954399 style="border-top:solid 5px #954399;">
     <div class id="footer">
-            <p>
-            <!-- <a href="https://www.instagram.com/ikuyo_club/?hl=ja">
-            <img src="img/instagram.png" width="20px" height="20px">
-            </a>
-            <img src="img/twitter.png" width="20px" height="20px"> -->
-          </p>
-            <p><small>© 2019 copyrights. ikuyo.</small></p>
-            </div>
+      <p><small style="color:#954399">© 2019 copyrights. ikuyo.</small></p>
+    </div>
     </footer>
 </template>
 
@@ -19,6 +13,8 @@ width: 100%;
 text-align: center;
 height: 100%;
 margin-top:0px;
+margin-bottom:30px;
+
 }
 
 </style>

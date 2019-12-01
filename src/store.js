@@ -3,12 +3,10 @@ import Vuex from 'vuex'
 import firebase from 'firebase'
 import cart from './cartstore.js'
 import item from './itemstore.js'
-import router from './router.js'
 
 
 Vue.use(Vuex)
 
-const sleep = msec => new Promise(resolve => setTimeout(resolve, msec))
 
 export default new Vuex.Store({
   modules: {
@@ -28,7 +26,7 @@ export default new Vuex.Store({
       state.loading = true
     },
     end(state) {
-      setTimeout(function(){state.loading = false}, 500);
+      setTimeout(function(){state.loading = false}, 300);
     },
     setLoginUser(state, user) {
       state.login_user = user

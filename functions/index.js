@@ -19,19 +19,21 @@ app.use(express.urlencoded({ extended: true })) // for parsing application/x-www
 //stripeCharge関数
 const stripeCharge = (request, response) => {
     // response.send(request.body);//送ってきたrequestをresponseとして返す
-    // const amount = 1000;
     // const currency = 'jpy';
     // const description = 'Stripe ikuyo';
+    console.log(request.body);
+    // const { amount } = request.body.token;
     const source = request.body.token.id;
     const shipping = {
         address: {
             line1: request.body.token.card.address_line1
         },
-        name: request.body.token.card.name
+        name: request.body.token.card.name,
+        phone:request.body.token.card.address_city
     };
-    const email = request.body.token.email
+    const receipt_email = request.body.token.card.address_line2;
 
-    const charge = {amount: 1000, currency: 'jpy', description: 'Stripe ikuyo', source, shipping};
+    const charge = {amount: request.body.amount, currency: 'jpy', description: 'ikuyo', source, shipping,receipt_email,metadata:request.body.description};
  
     stripe.charges.create(charge)
     .then(res => {
