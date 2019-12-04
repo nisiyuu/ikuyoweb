@@ -1,96 +1,53 @@
 <template>
-<div class="z">
-  <div class="z2">
-    <v-container>
-    <v-row justify="space-around" style="color:#954399">
-    <v-col cols=12 lg=6 md=6 sm=6 class="mt-12 ml-0 mb-12">
-      <v-col cols=12 lg=12 md=12 sm=12 class="ma-0 pa-0">
-      <v-carousel
-      hide-delimiters
-      :show-arrows="false"
-      cycle
-      interval="3000"
-      progress
-      progress-color="#954399"
-      height="auto"
-      style="width:80%;height:auto;margin: 0 auto;"
-      >
-      <v-carousel-item
-      v-for="(item,i) in items[0].items"
-      :key="i"
-      :src="item.image"
-      style="width:100%;height:auto;text-align:center"
-      >
-      </v-carousel-item>
-       </v-carousel>
-      </v-col>
+<div>
+  <v-container style="color:black;">
+    <v-row>
       <v-col cols=12 lg=12 md=12 sm=12 class="mt-10 pa-0">
-      <v-img class="mb-12 foo"
-      v-for="(sample,i) in items[0].samples"
-      :key="i"
-      :src="sample.sample"
-      style="width:50%;height:auto;margin: 0 auto;"
-      ></v-img>
+        <v-img class="mb-12 foo"
+        v-for="(sample,i) in items[0].samples"
+        :key="i"
+        :src="sample.sample"
+        style="width:50%;height:auto;margin: 0 auto;"
+        ></v-img>
       </v-col>
-
-    </v-col>
-
-<v-col cols=10 lg=6 md=6 sm=6 class="mt-10 ml-0 pl-0"> 
-
-    <v-col class="mb-8 mt-2">
-        <vue-typer :repeat='0' class="pt-0 itemsubject" :text=items[0].name></vue-typer>      
-    </v-col>
-    <v-col class="">
-      <vue-typer :repeat='1' class="pt-0 itemsubject" text="detail"></vue-typer>
-    </v-col>
-    <v-col class="mb-12">
-        <vue-typer :repeat='1' class="pt-0 itemcontent" :text=items[0].description></vue-typer>      
-    </v-col>
+    </v-row>
     
-    <v-col class="">
-      <vue-typer :repeat='1' class="pt-0 itemsubject" text="price"></vue-typer>
-    </v-col>
+    <v-row justify="center"
+    v-observe-visibility="{
+      callback: visibilityChanged01,
+      intersection: {
+        threshold: 0.1,
+      }}"
+    v-bind:class='{active:isVisible01}'
+    class="inactive mt-10"
+    >
+      <v-col cols=10 lg=6 md=6 sm=6 class="mt-0 ml-0 pl-0 pb-0" style="border-left:solid 1px #B759C7;"> 
+        <vue-typer class="pt-0 itemname" :text="items[0].name"></vue-typer>
+        <v-col class="pt-0 itemsubject">Detail</v-col>
+        <v-col class="pt-0 itemcontent">{{items[0].description}}</v-col>
+        <v-col class="pt-0 itemsubject">Price</v-col>
+        <v-col class="pt-0 itemcontent">{{items[0].price}}</v-col>
 
-    <v-col class="mb-12">
-        <vue-typer :repeat='1' class="pt-0 itemcontent" :text=items[0].price></vue-typer>      
-    </v-col>
-
-
-    <!-- <v-col class="mb-1 itemsizecolor" v-text="'Size&color'" :class="{ eraseLine: isActive}">
-    </v-col> -->
-        
-      <!-- アイテムを決める -->
-    <v-col class="ma-0 pa-0">
+    <v-col class="mb-12 mt-8" style="margin:0 auto;">
       <v-select
-      v-model="selected"
-      item-text="text"
-      item-value="value"
-      :item-color="'#ffffe0'"
-      :items="selectableItems"
-      :menu-props="{ maxHeight: '400' }"
-      label="Size & color"
-      persistent-hint
-      outlined
-      color="#954399"
-      >
-      <template v-slot:selection="{ item, index }">
-        <span style="color: #954399;font-size:50%; font-weight:900">{{ item.text }}</span>
-      </template>
-      </v-select>
-    </v-col>
-
-    <!-- カートに入れる -->
-    <v-col class="mb-12" style="margin:0 auto;">
-      <v-btn color="#954399" @click="addCart" :disabled="buttonDisabled" block>
+           v-model="selected"
+           item-text="text"
+           item-value="value"
+           :items="selectableItems"
+           :menu-props="{ maxHeight: '400' }"
+           label="Size & color"
+           persistent-hint
+           outlined
+           color="#B759C7"
+          >
+          </v-select>
+      <v-btn color="black" @click="addCart" :disabled="buttonDisabled" block>
         <div style="color:white">ADD TO CART</div>
       </v-btn>
     </v-col>
 </v-col>
-
   </v-row>
 </v-container>
-  </div>
-  <!-- <three class="z1"></three> -->
 </div>
 </template>
 
@@ -98,13 +55,14 @@
 import itemutil from '../mixin/Item.js'
 import three from "../components/backthree.vue";
 import { VueTyper } from 'vue-typer'
-
+import { ObserveVisibility }from 'vue-observe-visibility'
 
 export default {
   mixins:[itemutil],
   components:{
     three,
     VueTyper,
+    ObserveVisibility,
   },
   props:{
     groupID:{type:String, default:'ikuyoT'},//shop.vueのなかのItemlist.vueから送られてくる
@@ -113,6 +71,7 @@ export default {
     return {
       selected: null,
         // { text: 'サイズ', value: 'price' },//productに値を入れるこれをaddtoCartの第二引数で受け取るそしてcartitemに渡る
+      isVisible01: false,
     }
 },//array.filterで範囲を狭くしていく、それでidを生成、さらに言えば範囲を狭くしてき、何もなくなれば在庫切れ
 computed:{
@@ -146,6 +105,11 @@ computed:{
   }
  },
 methods: {
+    visibilityChanged01(isVisible01, entry) {
+        this.isVisible01 = isVisible01
+    },
+
+
     addCart () {
       //cartへ商品を送り遷移
       const selectedItem = {
@@ -162,67 +126,73 @@ methods: {
 </script>
 
 
-<style>
-.v-list-item__title {
-  color: #954399;
+<style scoped>
+.fade-enter{
+  opacity: 0;
 }
 
-.itemmainsubject{
+.fade-leave-to{
+  transform: translateX(100px)
+}
+
+.fade-enter-active{
+  transition: opacity 4s;
+}
+
+.fade-leave-active {
+  transition: transform 4s ease-in;
+}
+
+
+.inactive{
+  opacity:0;
+  margin-top: 30%;
+  margin-bottom:10%;
+}
+
+.active{
+  animation-name:fade-in;
+  animation-duration:2s;
+  animation-timing-function: ease-out;
+  animation-delay:0s;
+  animation-iteration-count:1;
+  animation-direction:normal;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fade-in {
+  0% {opacity: 0; transform: translate3d(0,-50px,0);}
+  100% {opacity: 1; transform: translate3d(0,0,0);}
+}
+
+
+.itemname{
   width:100%;
   height:auto;
-  /* font-size:5vw; */
-  font-size:180%;
+  font-size: calc(0.75rem + ((1.8vw - 4.8px) * 0.9677));
   word-wrap: break-word;
-  padding:0 0;
-  font-weight:900;
+  font-weight:600;
+  /* border-bottom:solid 1px #B759C7; */
 }
 
-/* スクロールふわり */
 .itemcontent{
   width:100%;
   height:auto;
-  /* font-size:3vw; */
-  font-size:100%;
+  font-size: calc(0.75rem + ((1vw - 4.8px) * 0.9677));
   word-wrap: break-word;
-  padding: 0 0;
-  font-weight:600;
-  font-family: 'Courier New', Courier, monospace;
+  margin-left:9%;
+  border-left:solid 1px #B759C7;
 }
 
 .itemsubject{
   width:100%;
   height:auto;
-  /* font-size:2vw; */
-  font-size:120%;
+  font-size: calc(0.75rem + ((1.3vw - 4.8px) * 0.9677));
   word-wrap: break-word;
-  border-bottom:solid 3px #954399;
-  padding:0 0;
-  font-weight:900;
+  font-weight:600;
+  margin-left:5%;
+  margin-top:15%;
 }
-
-.itemsizecolor{
-  width:100%;
-  height:auto;
-  font-size:1.5vw;
-  word-wrap: break-word;
-  padding: 0 0;
-  font-weight:900;
-}
-
-
-/* .foo.delighter {
-  transition: all 0.5s ease-out;
-  opacity: 0;
-  width:auto;
-  height:auto;
-}
-.foo.delighter.started {
-  opacity: 1;
-} */
-/* .foo.delighter.started.ended {
-  
-} */
-
 
 .eraseLine{
   text-decoration: line-through;
@@ -230,63 +200,6 @@ methods: {
   text-decoration-color:red;
 }
 
-.menu2{
-    color:#954399;
-    border:double #954399;
-    font-size: 120%;
-    font-weight:900;
-    margin:2em 2em;
-    position: relative;
-    padding: 0.5em 1.5em;
-    border:double 5px #954399;
-}
-.menu2:before, .menu2:after{
-    content: '';
-    position: absolute;
-    top: -10px;
-    width: 2px;
-    height: -webkit-calc(100% + 20px);
-    height: calc(100% + 20px);
-    background-color: #954399;
-}
-.menu2:before {left: 10px;}
-.menu2:after {right: 10px;}
-.menu2 span {
-    margin: 0; 
-    padding: 0;
-}
-
-.toptextstyle{
-  padding:10px;
-  color:#954399;
-  font-weight: bold;
-  font-size: 100%; 
-}
-
-.textstyle{
-  padding:50px;
-  color:#954399;
-  font-weight: bold;
-  font-size: 100%; 
-}
-
-
-/* memo
-<v-carousel
-      hide-delimiters
-      :show-arrows="false"
-      cycle
-      interval="4000"
-      progress
-      progress-color="#954399"
-      height="650"
-      >
-      <v-carousel-item
-      v-for="(item,i) in items[0].items"
-      :key="i"
-      :src="item.image"
-      ></v-carousel-item>
-      </v-carousel> */
 </style>
 
 

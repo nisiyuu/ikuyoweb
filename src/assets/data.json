@@ -5,6 +5,7 @@
         "name": "ORIGINAL TEE",
         "price":"3000",
         "image":"img/ikuyoT/main.jpg",
+        "samplemain":"img/ikuyoT/T_front.png",
         "samples":[
             {"sample":"img/ikuyoT/T_front.png"},
             {"sample":"img/ikuyoT/T_back.png"}
@@ -23,6 +24,7 @@
         "name": "ORIGINAL HOODIE",
         "price":"7000",
         "image":"img/hoodie/main.jpg",
+        "samplemain":"img/hoodie/sample_front.png",
         "samples":[
             {"sample":"img/hoodie/sample_front.png"},
             {"sample":"img/hoodie/sample_back.png"}
@@ -44,6 +46,7 @@
         "name": "STICKER",
         "price":"1000",
         "image":"img/sticker1.jpg",
+        "samplemain":"img/sticker1.jpg",
         "samples":[
             {}
         ],

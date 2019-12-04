@@ -119,13 +119,12 @@ const router = new Router({
 //   store.commit('setLoading', false)
 // })
 
-router.beforeEach((to, from, next) => {
-  store.commit('start')
-  next()
-})
-// ルーターナビゲーションの後にフック
-router.afterEach(() => {
-  store.commit('end')
-})
+// router.beforeEach((to, from, next) => {
+//   setTimeout(next(),20000)
+// })
+// // ルーターナビゲーションの後にフック
+// router.afterEach(() => {
+//   store.commit('end')
+// })
 
 export default router

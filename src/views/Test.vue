@@ -5,22 +5,14 @@
     <v-col v-show="totalPrice!=0" class="mt-0 pt-0" style="font-size:60%;">※送料は一律1000円頂いております</v-col>
     <v-col v-show="totalPrice==0">Cart　is　empty</v-col> 
     <v-col cols=12 lg=12 md=12 sm=12 style="border-bottom:solid" class="pb-0">購入商品</v-col>
-    <v-row>
-    <v-col v-for="(item,index) in cartItems" :key="index" cols=6 lg=6 md=6 sm=6 >
-        <v-card outlined
-        max-width="400"
-        max-height="400"
-        elevation="0"
-        color="#954399"
-        >
-    <v-img class="white--text align-end" height="200px" :src="getItemDetails(item).image"></v-img>
-    <v-card-text style="color:white">
-      <div>{{getItemGroup(item).name}}</div>
-      <div>{{getItemGroup(item).price}} yen</div>
-      <div>{{getItemDetails(item).listItem}}</div>
-    </v-card-text>
-  </v-card>
-    </v-col>
+
+    <v-row  align="center" justify="center" v-for="(item,index) in cartItems" :key="index" class="basesize">
+      <v-col cols=7 lg=7 md=7 sm=7><v-img :src="getItemGroup(item).samplemain" width="50%" style="margin:0 auto"></v-img></v-col>
+      <v-col cols=5 lg=5 md=5 sm=5 class="mt-3">
+      <v-col>{{getItemGroup(item).name}}</v-col>
+      <v-col>{{getItemGroup(item).price}} yen</v-col>
+      <v-col>{{getItemDetails(item).listItem}}</v-col>
+      </v-col>
     </v-row>
     </v-container>
 
@@ -109,6 +101,13 @@
 </v-container>
 </v-form>
 </template>
+
+<style scoped>
+.basesize{
+  font-size: calc(0.75rem + ((1vw - 4.8px) * 0.9677));
+}
+</style>
+
 
 <script>
 import axios from 'axios'

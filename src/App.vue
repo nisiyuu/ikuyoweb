@@ -1,27 +1,18 @@
 <template>
-<v-app id="background" style="position: relative;">
+<v-app id="font">
     <v-app-bar app flat color="transparent" 
-    v-if="this.$vuetify.breakpoint.xs || this.$vuetify.breakpoint.sm || this.$vuetify.breakpoint.md"
-    style="position:fixed;top:93%;left:45%;width:100%;height:100%;margin:0 auto;">
-      <div @click.stop="toggleSideMenu" v-show="!this.$store.state.loading" style="margin:0 auto;">
+    style="position:fixed;top:3%;left:0;">
+      <div @click.stop="toggleSideMenu" v-show="!this.$store.state.loading">
         <img src="img/varcord.jpg" class="varcord">
       </div>
       <!-- <v-spacer></v-spacer> -->
     </v-app-bar>
-
-    <v-app-bar app flat color="transparent" 
-    v-if="this.$vuetify.breakpoint.lg || this.$vuetify.breakpoint.xl"
-    right
-    style="position:fixed;top:93%;left:45%;width:100%;height:100%;margin:0 auto;">
-    <div @click.stop="toggleSideMenu" v-show="!this.$store.state.loading" style="margin:0 auto;">
-        <img src="img/varcord.jpg" class="varcord">
-      </div>
-    </v-app-bar>
-    <SideNav></SideNav>
-    
+    <SideNav></SideNav>    
   
-    <Loading v-show="this.$store.state.loading"/>
+    <!-- <Loading v-show="this.$store.state.loading"/> -->
+      <transition name="fade" appear>
       <router-view v-show="!this.$store.state.loading"/> 
+      </transition>
       <!-- <Footer v-show="this.$route.path !=='/'"> -->
       <!-- </Footer> -->
       </v-app>
@@ -29,104 +20,20 @@
 
 <style>
 #background{
-  width:100%;
-  height:100%;
+  /* font-family:LTUnivers,SystemSerif,"a-otf-futo-go-b101-pr6n",MyHiragino,"メイリオ",Meiryo,Osaka,"MS UI Gothic","ＭＳ Ｐゴシック","MS PGothic",sans-serif; */
+  /* width:100%; */
+  /* height:100%; */
   /* background-image: linear-gradient(#954399 1px, transparent 0), */
                     /* linear-gradient(90deg, #954399 1px, transparent 0); */
-  background-size: 40px 40px;
+  /* background-size: 40px 40px; */
   /* background-color:#037A90; */
-  font-family: 'Monoton', cursive;
+  /* font-family: 'Monoton', cursive; */
 }
-@import url('https://fonts.googleapis.com/css?family=Monoton&display=swap');
+/* @import url('https://fonts.googleapis.com/css?family=Monoton&display=swap'); */
 
-/* 共通のglichエフェクト */
-.glichwrap{
-  background-color:white;
-  animation: flash .1s infinite;
 
-/* グリッチhttps://hirashimatakumi.com/blog/6303.html */
-}
-@keyframes flash {
-  0% {
-    opacity: 1;
-    background: red;
-  }
-  100% {
-    opacity: .8;
-    background: white;
-  }
-}
-
-@keyframes skew {
-  0% {
-    transform: none;
-  }
-  33% {
-    transform: none;
-  }
-  33.3% {
-    transform: skewX(30deg);
-  }
-  33.6% {
-    transform: skewX(-30deg);
-  }
-  33.9% {
-    transform: none;
-  }
-  66% {
-    transform: none;
-  }
-  66.3% {
-    transform: skewX(5deg);
-  }
-  66.6% {
-    transform: skewX(-5deg);
-  }
-  66.9% {
-    transform: none;
-  }
-  77% {
-    transform: none;
-  }
-  77.3% {
-    transform: skewX(15deg);
-  }
-  77.6% {
-    transform: skewX(-15deg);
-  }
-  77.9% {
-    transform: none;
-  }
-}
-
-@keyframes glitch {
-  0% {
-    transform: translate(0);
-  }
-  12.5% {
-    transform: translate(-1px, 1px);
-  }
-  37.5% {
-    transform: translate(-1px, -1px);
-  }
-  62.5% {
-    transform: translate(1px, 1px);
-  }
-  87.5% {
-    transform: translate(1px, -1px);
-  }
-  100% {
-    transform: translate(0);
-  }
-}
-
-/* ロゴ */
-.logo{
-  opacity: 0.7;
-  width:25%;
-  height: 25%;
-  text-align: center;
-  /* animation:buruburu 0.1s infinite linear alternate; */
+#font{
+  font-family:LTUnivers,SystemSerif,"a-otf-futo-go-b101-pr6n",MyHiragino,"メイリオ",Meiryo,Osaka,"MS UI Gothic","ＭＳ Ｐゴシック","MS PGothic",sans-serif;
 }
 
 /* バーコード */
@@ -134,9 +41,8 @@
   /* width:50%;
   height: 50%; */
   opacity: 0.6;
-  width:20vw;
+  width:15vw;
   height:auto;
-  transform:rotateZ(90deg)
   /* animation:buruburu 0.1s infinite linear alternate; */
 }
 
@@ -169,8 +75,8 @@ export default {
   name: 'App',
   components: {
     SideNav,
-    Footer,
-    Loading,
+    // Footer,
+    // Loading,
   },
   methods: {
     ...mapActions(['toggleSideMenu', 'setLoginUser','logout','deleteLoginUser','fetchProducts'])

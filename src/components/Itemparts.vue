@@ -1,16 +1,14 @@
 <template>
 <div> 
-  <div class="image">
-    <v-card elevation="0">
+  <div>
       <v-img
-      :src=itemData.image
-      class="align-end headline"
-      height="100%"
-      width="100%"
+      :src=itemData.samplemain
+      class="image ma-12"
+      height="auto"
+      width="70%"
       @click="select"
       >
       </v-img>
-    </v-card>
   </div>
 
 </div>
@@ -20,7 +18,7 @@
 
 .image{
   /* text-align: center; */
-  margin-bottom: 20%;
+  margin:0 0 0 auto;
 }
 
 </style>

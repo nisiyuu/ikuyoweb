@@ -1,9 +1,9 @@
 <template>
-    <v-navigation-drawer app v-model="$store.state.drawer" fixed temporary bottom right height="220" style="background-color:#white;">
+    <v-navigation-drawer app v-model="$store.state.drawer" fixed temporary width="180" height="220" style="background-color:#white;">
       <v-list>
         <v-list-item v-for="item in items" :key="item.title" :to="item.link">
           <v-list-item-content>
-            <div style="color:#954399;font-weight:900;text-align:center">
+            <div style="color:#B759C7;font-weight:900;text-align:center">
             {{ item.title }}
             </div>
           </v-list-item-content>
