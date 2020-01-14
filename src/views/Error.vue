@@ -8,11 +8,11 @@
 
 
 <script>
-  export default {
+export default {
   methods: {
     goHome() {
       this.$router.push({ name: 'home'});
     }
   }
-  }
-  </script>
+}
+</script>

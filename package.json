@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@mdi/font": "^4.6.95",
     "axios": "^0.19.0",
     "body-parser": "^1.19.0",
     "core-js": "^2.6.5",
@@ -18,7 +19,7 @@
     "stripe": "^7.9.1",
     "three": "^0.110.0",
     "vue": "^2.6.10",
-    "vue-observe-visibility": "^0.4.4",
+    "vue-observe-visibility": "^0.4.6",
     "vue-router": "^3.0.3",
     "vue-stripe-checkout": "^1.2.6",
     "vue-stroll": "^0.5.0",
@@ -34,6 +35,8 @@
     "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
+    "file-loader": "^5.0.2",
+    "material-design-icons-iconfont": "^5.0.1",
     "sass": "^1.17.4",
     "sass-loader": "^7.1.0",
     "vue-cli-plugin-vuetify": "^0.5.0",
