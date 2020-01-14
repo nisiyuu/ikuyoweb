@@ -1,12 +1,13 @@
 export default {
-    computed: {
-        // $_allItems(){
-        //     return this.$store.getters['item/allItems']();
-        // }使ってないよね？11/11
-    },
-    methods: {
-        $_getItems(query) {
-            return this.$store.getters['item/allItems'](query);
-        }
+    methods:{
+        async $_getItemsFromType(type) {
+            return await this.$store.dispatch('item/getItemsFromType', type);//allitemsの戻り値は関数それに渡す引数がquery
+        },
+        async $_getItemsFromGroup(groupID) {
+            return await this.$store.dispatch('item/getItemsFromGroup',groupID);//allitemsの戻り値は関数それに渡す引数がquery
+        },
+        async $_getItemFromId(id) {
+            return await this.$store.dispatch('item/getItemFromId',id);//allitemsの戻り値は関数それに渡す引数がquery
+        },
     },
 };

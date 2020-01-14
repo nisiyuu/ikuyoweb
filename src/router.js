@@ -1,18 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-import Addresses from './views/Addresses.vue'
-import AddressForm from './views/AddressForm.vue'
 import Shop from './views/Shop.vue'
 import Itemdetail from './views/Itemdetail.vue'
 import Cart from './views/Cart.vue'
 import Error from './views/Error.vue'
-import Test from './views/Test.vue'
+import Pay from './views/Pay.vue'
 import loading from './views/loading.vue'
 import Success from './views/Success.vue'
 import Failure from './views/Failure.vue'
-import store from './store.js'
-import Db from './components/db.vue'
 
 Vue.use(Router)
 
@@ -22,11 +18,6 @@ const router = new Router({
     return { x: 0, y: 0 }
   },
   routes: [
-    {
-      path: '/db',
-      name: 'db',
-      component: Db
-    },
     {
       path: '/',
       name: 'home',
@@ -42,8 +33,8 @@ const router = new Router({
       path: '/itemdetail/:groupID',//idで管理できる
       name: 'itemdetail',
       component: Itemdetail,
-      props:true
-    },  //props:trueはなんだ？=>propsを有効にする
+      props:true//propsを有効にする
+    }, 
 
     {
       path: '/cart',
@@ -54,18 +45,7 @@ const router = new Router({
     {
       path: '/pay',
       name: 'stripe',
-      component: Test
-    },
-
-    {
-      path: '/addresses',
-      name: 'addresses',
-      component: Addresses
-    },
-    {
-      path: '/addresses/:address_id?/edit',
-      name: 'address_edit',
-      component: AddressForm
+      component: Pay
     },
     {
       path: '/loading',
@@ -109,22 +89,5 @@ const router = new Router({
 
   ]
 })
-
-// router.beforeEach((to, from, next) => {
-//   store.commit('setLoading', true)
-//   next({path:loading})
-// })
-
-// router.afterEach(() => {
-//   store.commit('setLoading', false)
-// })
-
-// router.beforeEach((to, from, next) => {
-//   setTimeout(next(),20000)
-// })
-// // ルーターナビゲーションの後にフック
-// router.afterEach(() => {
-//   store.commit('end')
-// })
 
 export default router

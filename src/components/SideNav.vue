@@ -13,9 +13,6 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import { mapActions } from 'vuex'
-
 export default {
   data () {
     return {
@@ -26,12 +23,6 @@ export default {
         { title: 'INSTAGRAM',icon: 'list',link: {path : '/instagram'}}
       ]
     }
-  },
-  methods: {
-    ...mapActions(['logout'])
-  },
-  computed:{
-    ...mapGetters(['userName','photoURL'])
   },
 }
 </script>
