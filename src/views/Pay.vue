@@ -6,8 +6,8 @@
     <div v-show="!screenloading">
       <v-form ref="form" v-model="valid" class="ml-3 mr-3 mt-12" style="font-family: 'Courier New', Courier, monospace">
         <v-container>
-          <v-col cols=12 lg=12 md=12 sm=12 v-show="totalPrice!=0" class="pb-0 bigsize" style="border-bottom:solid">お支払い金額　{{totalPrice + 1000}}円(税込)</v-col>
-          <v-col v-show="totalPrice!=0" class="mt-0 pt-0b basesize">※送料は一律1000円頂いております</v-col>
+          <v-col cols=12 lg=12 md=12 sm=12 v-show="totalPrice!=0" class="pb-0 bigsize" style="border-bottom:solid">お支払い金額　{{totalPrice + 500}}円(税込)</v-col>
+          <v-col v-show="totalPrice!=0" class="mt-0 pt-0b basesize">※送料は一律500円頂いております</v-col>
           <v-col v-show="totalPrice==0">Cart　is　empty</v-col> 
           <v-col cols=12 lg=12 md=12 sm=12 style="border-bottom:solid" class="pb-0 bigsize">購入商品</v-col>
           <v-row  align="center" justify="center" v-for="(item,index) in items" :key="index" class="basesize">
@@ -250,7 +250,7 @@ export default {
               errorElement.textContent = result.error.message;
               } else {
                 // トークンをサーバに送信
-                result.amount = this.totalPrice + 1000;
+                result.amount = this.totalPrice + 500;
                 //商品idデータをstirpeへ渡し、何が買われたか判断できるように
                 this.items.forEach((item,index) => {
                   this.predescription[index] = this.getCartItem(item,item[0].itemid).id
