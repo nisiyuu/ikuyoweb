@@ -1,13 +1,14 @@
 <template>
-    <!-- <div class="img">
-        <img src="../../public/img/shopvue.png" class="turkey">
-    </div> -->
-  <video playsinline muted autoplay loop class="loading">
-    <source src="./tv.mp4" type="video/mp4">
-  </video>
+  <div class="all">
+    <div class="spinner">
+      <div class="rect1"></div>
+      <div class="rect2"></div>
+      <div class="rect3"></div>
+      <div class="rect4"></div>
+      <div class="rect5"></div>
+    </div>
+  </div>
 </template>
-
-
 
 <script>
 export default {
@@ -16,21 +17,69 @@ export default {
 </script>
 
 <style scoped>
-.loading{
-    width:400%;
-    height:400%;
+.all{
+  background-color:white;
+  width:100vw;
+  height:100vh;
+  position: relative;
+  z-index:100;
+}
+/* * アニメーション * */
+.spinner {
+  margin: 0 auto;
+  width: 50px;
+  height: 40px;
+  line-height: 100vh;
+  text-align: center;
+  font-size: 10px;
+  position:relative;
+  z-index:900;
+}
+
+.spinner > div {
+  background-color: #B759C7;
+  height: 100%;
+  width: 6px;
+  display: inline-block;
+  
+  -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+  animation: sk-stretchdelay 1.2s infinite ease-in-out;
+}
+
+.spinner .rect2 {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s;
+}
+
+.spinner .rect3 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+.spinner .rect4 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+
+.spinner .rect5 {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s;
+}
+
+@-webkit-keyframes sk-stretchdelay {
+  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }  
+  20% { -webkit-transform: scaleY(1.0) }
+}
+
+@keyframes sk-stretchdelay {
+  0%, 40%, 100% { 
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+  }  20% { 
+    transform: scaleY(1.0);
+    -webkit-transform: scaleY(1.0);
+  }
 }
 
 
-.img{
-    widows:2000px;
-    height: 2000px;
-    text-align: center;
-    background-color: black;
-}
-
-.turkey{
-    width: 50%;
-    height:50%;
-}
 </style>

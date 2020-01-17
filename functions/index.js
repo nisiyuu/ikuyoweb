@@ -10,7 +10,8 @@ const stripe = require('stripe')(functions.config().stripe.secret_token);
 const express = require('express');
 //admin アプリ インスタンスが初期化される
 admin.initializeApp(functions.config().firebase);
-
+// データベースの参照を作成
+var firestore = admin.firestore()
 //body-parser機能をexpressで
 const app = express();
 app.use(express.json()) // for parsing application/json
@@ -65,6 +66,46 @@ exports.app = functions.https.onRequest((request, response) => {
         }
     })
 })
+
+// exports.stock = functions.https.onRequest((request, response) => {
+//     const stockvalue = firestore.collection('items').where("groupID", "==", "01");
+//     stockvalue.get()
+//         .then(function (querySnapshot) {
+//             return querySnapshot.forEach(function (doc) {
+//                 return response.send('success');
+//             });
+//         })
+//         .catch(error => {
+//             return response.send(error)
+//         })
+// })
+
+
+// exports.stock = functions.https.onRequest((request, response) => {
+//     return firestore.collection('items').where('groupID', '==', '03').get()
+//         .then(querySnapshot => {
+//             return querySnapshot.forEach(queryDocSnapshot => {
+//                 return queryDocSnapshot.data().set({ "stock": false }, { merge: true })
+//                     .then(res => {
+//                         return response.send('success')
+//                     })
+//             })
+//                 .catch(error => {
+//                     return response.send('faileda.');
+//                 });
+//         })
+// })
+
+exports.stock = functions.https.onRequest((request, response) => {
+    firestore.collection('items').doc('k3hijHibtRXBnyj1laFX').set({ "stock": false }, { merge: true })
+    .then(res => {
+        return response.send('success');
+    })
+    .catch(error => {
+        return response.send('failed!');
+    });
+})
+
 
 
 //https://stripe.com/docs/stripe-js/reference#the-elements-object stripe.JS

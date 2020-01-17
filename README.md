@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # ikuyowebpage
 
 ## Project setup
@@ -31,4 +30,3 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 =======
 # ikuyoweb
 ikuyowebpage
->>>>>>> origin/master
