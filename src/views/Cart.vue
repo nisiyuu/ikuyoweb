@@ -19,8 +19,8 @@
     
     <v-col class="mt-12 mb-10" cols=12 lg=12 md=12 sm=12 align="center">
       <!-- 合計金額の表示 -->
-      <div v-show="totalPrice!=0" style="font-weight:700;font-size: calc(0.75rem + ((2vw - 4.8px) * 0.9677));">TOTALPRICE　 {{totalPrice + 1000}} yen (tax in)</div>
-      <div v-show="totalPrice!=0" style="font-weight:300;font-size: calc(0.75rem + ((0.5vw - 4.8px) * 0.9677));">※送料は一律1000yen頂いております</div>
+      <div v-show="totalPrice!=0" style="font-weight:700;font-size: calc(0.75rem + ((2vw - 4.8px) * 0.9677));">TOTALPRICE　 {{totalPrice + 500}} yen (tax in)</div>
+      <div v-show="totalPrice!=0" style="font-weight:300;font-size: calc(0.75rem + ((0.5vw - 4.8px) * 0.9677));">※送料は一律500yen頂いております</div>
       <!-- 合計金額が0の時＝商品がない時の表示 -->
       <div v-show="totalPrice==0">Cart　is　empty</div>
     </v-col>
