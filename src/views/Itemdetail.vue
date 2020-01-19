@@ -85,9 +85,7 @@ export default {
   },
   computed:{
     viewjudge(){
-      if(this.items[0].groupID == '01'){
-        return true;
-      }else if(this.items[0].groupID == '02'){
+      if(this.items[0].type == '01'){
         return true;
       }
       else{
