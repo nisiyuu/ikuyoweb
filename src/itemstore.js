@@ -22,6 +22,7 @@ export default {
         measurementId: "G-VST9VT20Y2"
       };
       firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
       state.dbconnection = firebase.firestore();
       return state.dbconnection;
     },
