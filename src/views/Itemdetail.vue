@@ -60,6 +60,7 @@
 import itemutil from '../mixin/Item.js'
 import { VueTyper } from 'vue-typer'
 import { ObserveVisibility }from 'vue-observe-visibility'
+import 'intersection-observer'
 import loading from './loading.vue'
 import detailImgs from '../components/detailImgs.vue'
 
