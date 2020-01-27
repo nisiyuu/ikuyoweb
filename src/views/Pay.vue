@@ -272,7 +272,7 @@ export default {
     　　 },
         stockChange(){
           this.query.forEach(que => {
-            if(que != "01" && que != "03"){
+            if(que == "02"){
               const stockjudge = this.dbconnection.collection('items').doc(que);
               stockjudge.update({
                 stock: false
