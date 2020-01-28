@@ -4,7 +4,8 @@
     <loading v-show="screenloading"/>
     <!-- 本画面 -->
     <div v-show="!screenloading">
-      <v-row justify="end">
+      <v-container>
+      <v-row justify="center">
         <v-col cols=9 lg=9 md=9 sm=9>
           <transition-group name="item" appear mode="out-in">
             <item-parts
@@ -15,7 +16,7 @@
             >
             </item-parts>
           </transition-group>
-        </v-col>
+          </v-col>
       </v-row>
       <!-- カテゴリ選択 -->
       <div class="typetext">
@@ -26,6 +27,7 @@
       <!-- <div class="typedescription">
         <vue-typer :text="typeDescription" :repeat='0'></vue-typer>
       </div> -->
+      </v-container>
     </div>
   </div>
 </template>
@@ -144,7 +146,7 @@ export default {
 .typetext{
   position:fixed;
   top:20%;
-  left:5%;
+  left:7%;
   width:auto;
   height:auto;
 }

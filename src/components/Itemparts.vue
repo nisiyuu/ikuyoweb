@@ -1,16 +1,11 @@
 <template>
-  <div> 
-    <div>
-      <v-img
+  <v-col style="text-align:center" class="mt-8 mb-0 ml-6">
+    <img
       :src=itemData.samplemain
-      class="image ma-12"
-      height="auto"
-      width="70%"
+      class="img-size ma-2"
       @click="select"
-      >
-      </v-img>
-    </div>
-  </div>
+    >
+  </v-col>
 </template>
 
 <script>
@@ -28,8 +23,32 @@ export default {
 </script>
 
 <style scoped>
-.image{
-  margin:0 0 0 auto;
+@media screen and (min-width:1024px) {
+  .img-size{
+  width:60%;
+  height:auto;
+  }
+}
+
+@media screen and (min-width:780px) and (max-width:1024px) {
+  .img-size{
+  width:50%;
+  height:auto;
+  }
+}
+
+@media screen and (min-width:480px) and (max-width:780px) {
+  .img-size{
+  width:70%;
+  height:auto;
+  }
+}
+
+@media screen and (max-width:480px) {
+  .img-size{
+  width:100%;
+  height:auto;
+  }
 }
 </style>
 

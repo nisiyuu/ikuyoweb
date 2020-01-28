@@ -1,13 +1,9 @@
 <template>
-  <div>
-    <v-row>
-      <v-col cols=12 lg=12 md=12 sm=12 class="mt-10 pa-0" align="center">
+      <v-col style="text-align:center" class="mt-10 mb-8">
         <img :src="src" @load="load"
-        style="width:50%;height:auto;"
+        class="img-size"
         >
       </v-col>
-    </v-row>
-  </div>
 </template>
 
 <script>
@@ -24,5 +20,31 @@ export default {
 </script>
 
 <style scoped>
+@media screen and (min-width:1024px) {
+  .img-size{
+  width:170%;
+  height:auto;
+  }
+}
 
+@media screen and (min-width:780px) and (max-width:1024px) {
+  .img-size{
+  width:130%;
+  height:auto;
+  }
+}
+
+@media screen and (min-width:480px) and (max-width:780px) {
+  .img-size{
+  width:100%;
+  height:auto;
+  }
+}
+
+@media screen and (max-width:480px) {
+  .img-size{
+  width:70%;
+  height:auto;
+  }
+}
 </style>

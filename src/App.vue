@@ -22,25 +22,9 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP|Roboto&display=swap');/* バーコード */
 .varcord{
   opacity: 0.6;
-  width:15vw;
+  max-width: 80px;
   height:auto;
-}
-
-.buruburu {
-    -webkit-animation:buruburu 0.1s infinite linear alternate;
-    animation:buruburu 0.1s infinite linear alternate;
-}
-
-@-webkit-keyframes buruburu {
-    0% {-webkit-transform:translate(0, 0) rotate(-3deg);}
-    50% {-webkit-transform:translate(0, -1px) rotate(0deg);}
-    100% {-webkit-transform:translate(0, 0)rotate(3deg);}
-}
-
-@keyframes buruburu {
-    0% {transform:translate(0, 0) rotate(-3deg);}
-    50% {transform:translate(0, -1px) rotate(0deg);}
-    100% {transform:translate(0, 0)rotate(3deg);}
+  margin-left:10%;
 }
 
 </style>
