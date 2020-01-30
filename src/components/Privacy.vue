@@ -1,9 +1,7 @@
 <template>
-  <div>
-    <div>
-      <span style="color:blue;font-size:120%;" @click.stop="dialog = true">利用規約</span>
-      <span style="font-size:90%;">を確認</span>
-    </div>
+  <span>
+  <span style="color:blue;font-size:150%;" @click.stop="dialog = true">利用規約</span>
+  <span>への同意が必要です</span>
     <v-row justify="center">
       <v-dialog
       v-model="dialog"
@@ -133,7 +131,7 @@
       </v-card>
     </v-dialog>
     </v-row>
-  </div>
+    </span>
 </template>
 
 <script>
