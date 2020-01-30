@@ -1,7 +1,7 @@
 <template>
   <div>
     <loading v-show="!imgLoaded"/>
-    <div v-show="imgLoaded">
+    <div v-show="imgLoaded" class="margin-size">
       <item-img
       v-for="(img,i) in imgs"
       :key="i"
@@ -43,5 +43,24 @@ export default {
 </script>
 
 <style scoped>
+@media screen and (min-width:960px) {
+  .margin-size{
+    margin-left:40%;
+    margin-top:10%;
+  }
+}
+
+@media screen and ( min-width:600px) and (max-width:960px){
+  .margin-size{
+    margin-top:10%;
+  }
+}
+
+
+@media screen and (max-width:600px) {
+  .margin-size{
+    margin-top:20%;
+  }
+}
 
 </style>

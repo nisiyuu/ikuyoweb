@@ -6,54 +6,59 @@
       <p>sorry, out of stock</p>
     </div>
     <!-- 在庫あるとき -->
-    <v-container class="ma-0 pa-0" v-show="items[0].stock === true">
-      <detail-imgs
-      :imgs="detailImgs"
-      />
-      <v-row 
-      justify="center"
-      v-observe-visibility="{
-      callback: visibilityChanged01,
-      intersection: {
-        threshold: 0.1,
-      }}"
-      v-bind:class='{active:isVisible01}'
-      class="inactive mt-10"
-      >
-        <v-col cols=10 lg=6 md=6 sm=6 class="mt-0 ml-0 pl-0 pb-0 mb-0" style="border-left:solid 1px #B759C7;"> 
-          <vue-typer class="pt-0 itemname" :text="items[0].name"></vue-typer>
-          <v-col class="pt-0 itemsubject">Price</v-col>
-          <v-col class="pt-0 itemcontent">{{items[0].price}}</v-col>
-          <v-col class="pt-0 itemsubject">About</v-col>
-          <v-col class="pt-0 itemcontent">{{items[0].description}}</v-col>
-          <v-col class="pt-0 itemsubject" v-show="viewjudge">Material</v-col>
-          <v-col class="pt-0 itemcontent" v-show="viewjudge">{{items[0].material}}</v-col>
-          <v-col class="pt-0 itemsubject" v-show="viewjudge">Size</v-col>
-          <v-col class="pt-0 itemcontent" v-show="viewjudge">{{items[0].size}}</v-col>
-          <v-col class="mb-4 mt-8" style="margin:0 auto;">
-            <v-select
-             v-model="selected"
-             item-text="text"
-             item-value="value"
-             :items="selectableItems"
-             :menu-props="{ maxHeight: '400' }"
-             label="Size & color"
-             persistent-hint
-             outlined
-             color="#B759C7"
-            >
-            </v-select>
-            <v-btn color="black" @click="addCart" :disabled="buttonDisabled" block>
-              <div style="color:white">ADD TO CART</div>
-            </v-btn>
-            <v-btn color="rgba(0,0,0,0.12)" :to="{name: 'shop'}" class="mt-8" block>
-              <div style="color:white">BACK TO SHOP</div>
-            </v-btn>
-          </v-col>
+    <div v-show="items[0].stock === true" class="">
+      <v-row class="ma-0 pa-0">
+        <v-col cols=12 lg=5 md=5 sm=12 class="ma-0 pa-0">
+          <detail-imgs
+          :imgs="detailImgs"
+          />
         </v-col>
+
+        <v-col cols=12 lg=7 md=7 sm=12>        
+          <v-row
+          justify="center"
+          v-observe-visibility="{
+          callback: visibilityChanged01,
+          intersection: {
+            threshold: 0.1,
+          }}"
+          v-bind:class='{active:isVisible01}'
+          class="inactive mt-10"
+          >
+          <v-col cols=10 lg=6 md=7 sm=6 class="mt-0 ml-5 pb-0 pl-8 pr-0 mb-0 description-line"> 
+            <vue-typer class="pt-0 itemname" :text="items[0].name"></vue-typer>
+            <v-col class="pt-0 itemsubject">Price</v-col>
+            <v-col class="pt-0 itemcontent">{{items[0].price}}</v-col>
+            <v-col class="pt-0 itemsubject">About</v-col>
+            <v-col class="pt-0 itemcontent">{{items[0].description}}</v-col>
+            <v-col class="pt-0 itemsubject" v-show="viewjudge">Material</v-col>
+            <v-col class="pt-0 itemcontent" v-show="viewjudge">{{items[0].material}}</v-col>
+            <v-col class="pt-0 itemsubject" v-show="viewjudge">Size</v-col>
+            <v-col class="pt-0 itemcontent" v-show="viewjudge">{{items[0].size}}</v-col>
+            <v-col class="mb-4 mt-8" style="margin:0 auto;">
+              <v-select
+               v-model="selected"
+               item-text="text"
+               item-value="value"
+               :items="selectableItems"
+               :menu-props="{ maxHeight: '400' }"
+               label="Size & color"
+               persistent-hint
+               outlined
+               color="#B759C7"
+              >
+              </v-select>
+              <v-btn color="black" @click="addCart" :disabled="buttonDisabled" block>
+                <div style="color:white">ADD TO CART</div>
+              </v-btn>
+            </v-col>
+          </v-col>
+        </v-row>
+      </v-col>
       </v-row>
-    </v-container>
+      <div class="pretap"><router-link :to="{ name: 'shop' }" tag="div"><span></span>Items</router-link></div>
     </div>
+  </div>
 </template>
 
 <script>
@@ -173,16 +178,15 @@ vertical-align: center;
 .itemname{
   width:100%;
   height:auto;
-  font-size: calc(0.75rem + ((1.8vw - 4.8px) * 0.9677));
+  font-size: calc(0.75rem + ((0.5vw - 4.8px) * 0.9677));
   word-wrap: break-word;
   font-weight:600;
-  /* border-bottom:solid 1px #B759C7; */
 }
 
 .itemcontent{
   width:100%;
   height:auto;
-  font-size: calc(0.75rem + ((1vw - 4.8px) * 0.9677));
+  font-size: calc(0.75rem + ((0.25vw - 4.8px) * 0.9677));
   white-space: pre-wrap;
   margin-left:9%;
   border-left:solid 1px #B759C7;
@@ -191,7 +195,7 @@ vertical-align: center;
 .itemsubject{
   width:100%;
   height:auto;
-  font-size: calc(0.75rem + ((1.3vw - 4.8px) * 0.9677));
+  font-size: calc(0.75rem + ((0.35vw - 4.8px) * 0.9677));
   word-wrap: break-word;
   font-weight:600;
   margin-left:5%;
@@ -201,6 +205,81 @@ vertical-align: center;
 .vue-typer >>> .custom.char.selected {
   background-color: #B759C7;
 }
+
+.description-line{
+  border-left:double 3px #B759C7;
+}
+
+@media screen and (min-width:480px) {
+  .pretap{
+    color:#B759C7;
+    position: fixed;
+    bottom: 40%;
+    left: 10%;
+    z-index: 2;
+    display: inline-block;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-270deg);
+    text-decoration: none;
+    padding-top: 40px;
+  }
+  
+  .pretap span {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin-left: -12px;
+    border-left: 1px solid #B759C7;
+    border-bottom: 1px solid #B759C7;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    -webkit-animation: sdb 2s infinite;
+    animation: sdb 2s infinite;
+    box-sizing: border-box;
+  }
+
+
+}
+
+@media screen and (max-width:480px) {
+  /* 矢印 */
+  .pretap{
+  color:#B759C7;
+  position: fixed;
+  bottom: 55%;
+  left: 35px;
+  z-index: 2;
+  display: inline-block;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-270deg);
+  text-decoration: none;
+  padding-top: 40px;
+}
+.pretap span {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin-left: -12px;
+  border-left: 1px solid #B759C7;
+  border-bottom: 1px solid #B759C7;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-animation: sdb 2s infinite;
+  animation: sdb 2s infinite;
+  box-sizing: border-box;
+}
+
+}
+
+
 
 </style>
 
