@@ -1,7 +1,7 @@
 <template>
   <v-container fluid class="size-adjust ma-4">
     <v-row>
-      <v-col cols=12 class="mt-12 mb-0">
+      <v-col cols=12 class="mt-12 mb-0" style="font-weight:900;">
         <vue-typer text="Shopping　Cart" :repeat='0'></vue-typer>
       </v-col>
       <v-col cols=12 v-show="totalPrice!=0">
@@ -27,26 +27,29 @@
     
     <v-row justify="end" class="mt-10">
       <!-- 合計金額の表示 -->
-      <v-col cols=7 lg=3 md=3 sm=3 v-show="totalPrice!=0" style="border-bottom:solid 1px #B759C7;">
+      <v-col cols=7 lg=3 md=3 sm=4 v-show="totalPrice!=0" style="border-bottom:solid 1px #B759C7;">
         <span style="font-size:0.5rem;">TOTALPRICE　</span>
         <span style="font-size:0.9rem;">¥{{totalPrice + 500}} (tax in)</span>
       </v-col>
     </v-row>
 
     <v-row justify="end">
-      <v-col cols=7 lg=3 md=3 sm=3 v-show="totalPrice!=0" style="font-size:0.4rem;">※送料は一律¥500頂いております</v-col>
+      <v-col cols=7 lg=3 md=3 sm=4 v-show="totalPrice!=0" style="font-size:0.4rem;">※送料は一律¥500頂いております</v-col>
       <!-- 合計金額が0の時＝商品がない時の表示 -->
       <v-col v-show="totalPrice==0">Cart　is　empty</v-col>
     </v-row>
     
-    <v-row class="mb-6 mt-6" justify="center"> 
-      <v-col cols=12 lg=12 md=12 sm=12 align="center">
-        <v-btn color="black" :to="{name: 'stripe'}" :disabled="buttonDisabled" height="30" width="70%">
+    <v-row class="mt-6" justify="end"> 
+      <v-col cols=7 lg=3 md=3 sm=4 align="end">
+        <v-btn color="black" :to="{name: 'stripe'}" :disabled="buttonDisabled" height="30" width="100%">
           <div style="color:white">NEXT</div>
         </v-btn>
       </v-col>
-      <v-col cols=12 lg=12 md=12 sm=12 align="center"> 
-        <v-btn color="rgba(0,0,0,0.12)" :to="{name: 'shop'}" height="30" width="70%">
+    </v-row>
+
+    <v-row class="" justify="end"> 
+      <v-col cols=7 lg=3 md=3 sm=4 align="end"> 
+        <v-btn color="rgba(0,0,0,0.12)" :to="{name: 'shop'}" height="30" width="100%">
           <div style="color:white">CONTINUE SHOPPING</div>
         </v-btn>
       </v-col>

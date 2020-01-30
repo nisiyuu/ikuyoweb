@@ -1,9 +1,9 @@
 <template>
-      <v-col style="text-align:center" class="mt-10 mb-8">
-        <img :src="src" @load="load"
-        class="img-size"
-        >
-      </v-col>
+  <div style="text-align:center">
+    <img :src="src" @load="load"
+    class="img-size"
+    >
+  </div>
 </template>
 
 <script>
@@ -20,31 +20,27 @@ export default {
 </script>
 
 <style scoped>
-@media screen and (min-width:1024px) {
+@media screen and (min-width:960px)  {
   .img-size{
-  width:170%;
+  width:150%;
   height:auto;
+  margin-bottom:10%;
   }
 }
 
-@media screen and (min-width:780px) and (max-width:1024px) {
-  .img-size{
-  width:130%;
+@media screen and ( min-width:600px) and (max-width:959px){
+ .img-size{
+  width:55%;
   height:auto;
+  margin-bottom:15%;
   }
 }
 
-@media screen and (min-width:480px) and (max-width:780px) {
-  .img-size{
-  width:100%;
-  height:auto;
-  }
-}
-
-@media screen and (max-width:480px) {
+@media screen and (max-width:599px){
   .img-size{
   width:70%;
   height:auto;
+  margin-bottom:15%;
   }
 }
 </style>

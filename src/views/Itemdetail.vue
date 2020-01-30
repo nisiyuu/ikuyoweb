@@ -6,19 +6,15 @@
       <p>sorry, out of stock</p>
     </div>
     <!-- 在庫あるとき -->
-    <v-container v-show="items[0].stock === true">
-      <v-row>
-        <v-col cols=12 lg=6 md=6 sm=12>
-          <v-row justify="center">
-            <v-col cols=10 lg=6 md=6 sm=6>   
-            <detail-imgs
-            :imgs="detailImgs"
-            />
-            </v-col>
-          </v-row>
+    <div v-show="items[0].stock === true" class="">
+      <v-row class="ma-0 pa-0">
+        <v-col cols=12 lg=5 md=5 sm=12 class="ma-0 pa-0">
+          <detail-imgs
+          :imgs="detailImgs"
+          />
         </v-col>
 
-        <v-col cols=12 lg=6 md=6 sm=12>        
+        <v-col cols=12 lg=7 md=7 sm=12>        
           <v-row
           justify="center"
           v-observe-visibility="{
@@ -29,7 +25,7 @@
           v-bind:class='{active:isVisible01}'
           class="inactive mt-10"
           >
-          <v-col cols=10 lg=6 md=6 sm=6 class="mt-0 ml-0 pb-0 pl-8 pr-0 mb-0 description-line"> 
+          <v-col cols=10 lg=6 md=7 sm=6 class="mt-0 ml-5 pb-0 pl-8 pr-0 mb-0 description-line"> 
             <vue-typer class="pt-0 itemname" :text="items[0].name"></vue-typer>
             <v-col class="pt-0 itemsubject">Price</v-col>
             <v-col class="pt-0 itemcontent">{{items[0].price}}</v-col>
@@ -59,12 +55,9 @@
           </v-col>
         </v-row>
       </v-col>
-
       </v-row>
-     
       <div class="pretap"><router-link :to="{ name: 'shop' }" tag="div"><span></span>Items</router-link></div>
-
-    </v-container>
+    </div>
   </div>
 </template>
 
