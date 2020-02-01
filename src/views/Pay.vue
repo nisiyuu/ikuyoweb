@@ -213,7 +213,7 @@ export default {
       query() {
         let groupIDarray = [];
         this.items.forEach(item => {
-          groupIDarray.push(item[0].groupID);
+          groupIDarray.push(item[0].type);
         });
         return groupIDarray;
       },
