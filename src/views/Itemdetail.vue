@@ -213,6 +213,8 @@ vertical-align: center;
 @media screen and (min-width:480px) {
   .pretap{
     color:#B759C7;
+    font-weight:700;
+    font-size:16px;
     position: fixed;
     bottom: 40%;
     left: 10%;
@@ -249,6 +251,8 @@ vertical-align: center;
   /* 矢印 */
   .pretap{
   color:#B759C7;
+  font-weight:700;
+  font-size:16px;
   position: fixed;
   bottom: 55%;
   left: 35px;
