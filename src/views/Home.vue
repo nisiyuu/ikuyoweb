@@ -55,15 +55,38 @@
       
       <div class="toplogo">
         <vue-typer class="biglogo" text="ikuyo" :repeat='0' :type-delay='120' :pre-type-delay='5500'></vue-typer><br>
-        <vue-typer class="smalllogo" text="mai hirakawa/yuki nishimine" :repeat='0' :type-delay='120' :pre-type-delay='6500'></vue-typer>
+        <vue-typer class="smalllogo" text="mai hirakawa/yuki nishimine" :repeat='0' :type-delay='120' :pre-type-delay='6500'></vue-typer><br>
+        <router-link :to="{ name: 'about' }"><vue-typer class="aboutus buruburu" text="About us" :type-delay='120' :repeat='0' :pre-type-delay='10000'></vue-typer></router-link>
       </div>
-      <div class="prescroll"><span></span><span></span><span></span>Collection</div>
+        <div class="arrowWrap">
+        <div class="arrowInner">
+          <p>COLLECTION</p>
+        <div class="arrow"></div>
+      </div>
+      </div>
+      
       <div class="pretap"><router-link :to="{ name: 'shop' }" tag="div"><span></span>Shop</router-link></div>
     </div>
   </div>
 </template>
 
 <style scoped>
+.buruburu{
+    display: inline-block;
+    animation-name:hurueru;
+    animation-duration:.5s;
+    animation-iteration-count:infinite;
+    animation-delay:8s;
+}
+
+@keyframes hurueru {
+    0% {transform: translate(0px, 0px) rotateZ(0deg)}
+    25% {transform: translate(2px, 2px) rotateZ(1deg)}
+    50% {transform: translate(0px, 2px) rotateZ(0deg)}
+    75% {transform: translate(2px, 0px) rotateZ(-1deg)}
+    100% {transform: translate(0px, 0px) rotateZ(0deg)}
+}
+
 .collections{
   width:100%;
   height:auto;
@@ -86,8 +109,13 @@
     font-weight:700;
     font-size: calc(0.75rem + ((10vw - 4.8px) * 0.9677));
   }
+  .aboutus{
+    background-color:#B759C7;
+  }
   .pretap{
     color:#B759C7;
+    font-weight:700;
+    font-size:16px;
     position: fixed;
     bottom: 40%;
     left: 10%;
@@ -99,33 +127,6 @@
     transform: rotate(-270deg);
     text-decoration: none;
     padding-top: 40px;
-  }
-  .prescroll{
-    color:#B759C7;
-    position: fixed;
-    top: 90%;
-    left: 62%;
-    z-index: 2;
-    display: inline-block;
-    -webkit-transform: translate(0, -50%);
-    transform: translate(0, -50%);
-    text-decoration: none;
-    padding-top: 65px;
-  }
-  .prescroll span {
-    position: fixed;
-    top: 0;
-    left: 50%;
-    width: 20px;
-    height: 20px;
-    margin-left: -12px;
-    border-left: 1px solid #B759C7;
-    border-bottom: 1px solid #B759C7;
-    -webkit-transform: rotate(-45deg);
-    transform: rotate(-45deg);
-    -webkit-animation: sdb 2s infinite;
-    animation: sdb 2s infinite;
-    box-sizing: border-box;
   }
   .pretap span {
     position: fixed;
@@ -142,6 +143,63 @@
     animation: sdb 2s infinite;
     box-sizing: border-box;
   }
+
+  /* アニメーション設定 */
+.arrowWrap {
+  position: fixed;
+  right: 33%;
+  bottom: 0;
+  height: 200px
+}
+
+.arrowInner p {
+  font-size: 12px;
+  font-weight: 900;
+  color:#B759C7;
+  text-align: end;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.arrow {
+  width: 1px;
+  height: 100px;
+  margin: 50px auto 0;
+  background-color: #eee;
+  position: relative;
+  overflow: hidden;
+}
+
+.arrow::before {
+  content: '';
+  width: 1px;
+  height: 100px;
+  margin: 50px auto 0;
+  background-color: #B759C7;
+  position: absolute;
+  top: -150px;
+  left: 0;
+  -webkit-animation: arrow 2.0s ease 0s infinite normal;
+  animation: arrow 2.0s ease 0s infinite normal;
+}
+
+@keyframes arrow {
+  0% {
+    -webkit-transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
+  }
+
+  60% {
+    -webkit-transform: translate3d(-50%, 100px, 0);
+    transform: translate3d(-50%, 100px, 0);
+  }
+
+  100% {
+    -webkit-transform: translate3d(-50%, 100px, 0);
+    transform: translate3d(-50%, 100px, 0);
+  }
+}
+
 
 
 }
@@ -164,36 +222,10 @@
     font-size: calc(0.75rem + ((13vw - 4.8px) * 0.9677));
   }
   /* 矢印 */
-  .prescroll{
-    color:#B759C7;
-    position: fixed;
-    top: 90%;
-    left: 50%;
-    z-index: 2;
-    display: inline-block;
-    -webkit-transform: translate(0, -50%);
-    transform: translate(0, -50%);
-    text-decoration: none;
-    padding-top: 65px;
-  }
-  .prescroll span {
-    position: fixed;
-    top: 0;
-    left: 50%;
-    width: 20px;
-    height: 20px;
-    margin-left: -12px;
-    border-left: 1px solid #B759C7;
-    border-bottom: 1px solid #B759C7;
-    -webkit-transform: rotate(-45deg);
-    transform: rotate(-45deg);
-    -webkit-animation: sdb 2s infinite;
-    animation: sdb 2s infinite;
-    box-sizing: border-box;
-  }
-
   .pretap{
   color:#B759C7;
+  font-weight:700;
+  font-size:16px;
   position: fixed;
   bottom: 45%;
   left: 35px;
@@ -222,6 +254,17 @@
   box-sizing: border-box;
 }
 
+.arrowWrap {
+  display: none;
+}
+
+.arrowInner p {
+  display: none
+}
+
+.arrow {
+  display: none;
+}
 
 
 }
@@ -236,6 +279,11 @@
 }
 .smalllogo{
   font-size: calc(0.75rem + ((3vw - 4.8px) * 0.9677));
+}
+
+.aboutus{
+  font-size: calc(0.75rem + ((1.5vw - 4.8px) * 0.9677));
+  background-color:#B759C7;
 }
 
 
@@ -267,23 +315,6 @@
   0% {opacity: 0; transform: translate3d(0,0,0);}
   100% {opacity: 1; transform: translate3d(0,0,0);}
 }
-
-
-.prescroll span:nth-of-type(1) {
-  -webkit-animation-delay: 0s;
-  animation-delay: 0s;
-}
-.prescroll span:nth-of-type(2) {
-  top: 16px;
-  -webkit-animation-delay: .15s;
-  animation-delay: .15s;
-}
-.prescroll span:nth-of-type(3) {
-  top: 32px;
-  -webkit-animation-delay: .3s;
-  animation-delay: .3s;
-}
-
 
 @-webkit-keyframes sdb {
   0% {
