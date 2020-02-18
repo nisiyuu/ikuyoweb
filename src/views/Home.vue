@@ -55,22 +55,38 @@
       
       <div class="toplogo">
         <vue-typer class="biglogo" text="ikuyo" :repeat='0' :type-delay='120' :pre-type-delay='5500'></vue-typer><br>
-        <vue-typer class="smalllogo" text="mai hirakawa/yuki nishimine" :repeat='0' :type-delay='120' :pre-type-delay='6500'></vue-typer>
+        <vue-typer class="smalllogo" text="mai hirakawa/yuki nishimine" :repeat='0' :type-delay='120' :pre-type-delay='6500'></vue-typer><br>
+        <router-link :to="{ name: 'about' }"><vue-typer class="aboutus buruburu" text="About us" :type-delay='120' :repeat='0' :pre-type-delay='10000'></vue-typer></router-link>
       </div>
         <div class="arrowWrap">
         <div class="arrowInner">
-          <p>SCROLL DOWN</p>
+          <p>COLLECTION</p>
         <div class="arrow"></div>
       </div>
       </div>
-
-
+      
       <div class="pretap"><router-link :to="{ name: 'shop' }" tag="div"><span></span>Shop</router-link></div>
     </div>
   </div>
 </template>
 
 <style scoped>
+.buruburu{
+    display: inline-block;
+    animation-name:hurueru;
+    animation-duration:.5s;
+    animation-iteration-count:infinite;
+    animation-delay:8s;
+}
+
+@keyframes hurueru {
+    0% {transform: translate(0px, 0px) rotateZ(0deg)}
+    25% {transform: translate(2px, 2px) rotateZ(1deg)}
+    50% {transform: translate(0px, 2px) rotateZ(0deg)}
+    75% {transform: translate(2px, 0px) rotateZ(-1deg)}
+    100% {transform: translate(0px, 0px) rotateZ(0deg)}
+}
+
 .collections{
   width:100%;
   height:auto;
@@ -92,6 +108,9 @@
   .biglogo{
     font-weight:700;
     font-size: calc(0.75rem + ((10vw - 4.8px) * 0.9677));
+  }
+  .aboutus{
+    background-color:#B759C7;
   }
   .pretap{
     color:#B759C7;
@@ -124,6 +143,7 @@
     animation: sdb 2s infinite;
     box-sizing: border-box;
   }
+
   /* アニメーション設定 */
 .arrowWrap {
   position: fixed;
@@ -259,6 +279,11 @@
 }
 .smalllogo{
   font-size: calc(0.75rem + ((3vw - 4.8px) * 0.9677));
+}
+
+.aboutus{
+  font-size: calc(0.75rem + ((1.5vw - 4.8px) * 0.9677));
+  background-color:#B759C7;
 }
 
 

@@ -9,6 +9,7 @@ import Pay from './views/Pay.vue'
 import loading from './views/loading.vue'
 import Success from './views/Success.vue'
 import Failure from './views/Failure.vue'
+import About from './views/About.vue'
 
 Vue.use(Router)
 
@@ -22,6 +23,11 @@ const router = new Router({
       path: '/',
       name: 'home',
       component: Home
+    },
+    {
+      path: '/about',
+      name: 'about',
+      component: About
     },
     {
       path: '/shop',
