@@ -11,6 +11,7 @@ export default {
       if (state.dbconnection !== null) {
         return state.dbconnection;
       }
+      // firebaseConfigは隠さなくても問題ない
       const firebaseConfig = {
         apiKey: "AIzaSyCMnTH8vTFh9q3y9Cx_Bb6HkwqjguMztx4",
         authDomain: "ikuyoproject-9e009.firebaseapp.com",
