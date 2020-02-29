@@ -143,7 +143,7 @@ export default {
     return{
       contents:[
         {subject:'会社名',subjectvalue:'ikuyo'},
-        {subject:'設立',subjectvalue:'2020年1月'},
+        {subject:'設立',subjectvalue:'2018年4月'},
         {subject:'代表',subjectvalue:'平川真衣　西峯優輝'},
         {subject:'事業内容',subjectvalue:'衣料品や雑貨などの製造、販売業務'},
       ],
