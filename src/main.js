@@ -5,6 +5,7 @@ import router from './router'
 import store from './store'
 import vuetify from './plugins/vuetify'
 import VueObserveVisibility from 'vue-observe-visibility'//スクロールで画像浮き上がるプラグイン
+import './registerServiceWorker'
 
 Vue.config.productionTip = false
 Vue.use(VueObserveVisibility);
