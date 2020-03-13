@@ -1,49 +1,49 @@
 {
   "name": "ikuyo",
   "short_name": "ikuyo",
-  "theme_color": "#B759C7",
-  "background_color": "#B759C7",
-  "display": "fullscreen",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone",
   "Scope": "/",
   "start_url": "/",
   "icons": [
     {
-      "src": "./images/icons/icon-72x72.png",
-      "sizes": "72x28",
+      "src": "./images/icons/varcord_72.jpg",
+      "sizes": "72x72",
       "type": "image/png"
     },
     {
-      "src": "./images/icons/icon-96x96.png",
-      "sizes": "96x37",
+      "src": "./images/icons/varcord_96.jpg",
+      "sizes": "96x96",
       "type": "image/png"
     },
     {
-      "src": "./images/icons/icon-128x128.png",
-      "sizes": "128x50",
+      "src": "./images/icons/varcord_128.jpg",
+      "sizes": "128x128",
       "type": "image/png"
     },
     {
-      "src": "./images/icons/icon-144x144.png",
+      "src": "./images/icons/varcord_144.jpg",
       "sizes": "144x144",
       "type": "image/png"
     },
     {
-      "src": "./images/icons/icon-152x152.png",
+      "src": "./images/icons/varcord_152.jpg",
       "sizes": "152x152",
       "type": "image/png"
     },
     {
-      "src": "./images/icons/icon-192x192.png",
+      "src": "./images/icons/varcord_192.jpg",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "./images/icons/icon-384x384.png",
+      "src": "./images/icons/varcord_384.jpg",
       "sizes": "384x384",
       "type": "image/png"
     },
     {
-      "src": "./images/icons/icon-512x512.png",
+      "src": "./images/icons/varcord_512.jpg",
       "sizes": "512x512",
       "type": "image/png"
     }
